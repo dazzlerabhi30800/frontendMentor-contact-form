@@ -25,23 +25,23 @@
 
         <!-- First Name -->
         <div style="grid-area: one" class="input--group">
-          <label>First Name *</label>
-          <input type="text" class="group--input" name="first" />
+          <label for="firstName">First Name *</label>
+          <input id="firstName" type="text" class="group--input" name="first" />
           <!-- Error -->
           <small> This Field is Required </small>
         </div>
 
         <!-- Last Name -->
         <div style="grid-area: two" class="input--group">
-          <label>First Name *</label>
-          <input type="text" class="group--input" name="last" />
+          <label for="lastName">First Name *</label>
+          <input id="lastName" type="text" class="group--input" name="last" />
           <small> This Field is Required </small>
         </div>
 
         <!-- Email Address -->
         <div style="grid-area: three" class="input--group">
-          <label>Email Adress *</label>
-          <input type="text" class="group--input" name="email" />
+          <label for="email">Email Adress *</label>
+          <input id="email" type="text" class="group--input" name="email" />
           <small> This Field is Required </small>
         </div>
 
@@ -56,7 +56,7 @@
               <label for="general--enquiry">
                 <!-- Circle -->
                 <span class="checkbox--circle"></span>
-                <p>General Enquiry</p>
+                <span>General Enquiry</span>
               </label>
             </div>
 
@@ -66,7 +66,7 @@
               <label for="support--request">
                 <!-- Circle -->
                 <span class="checkbox--circle"></span>
-                <p>Support Request</p>
+                <span>Support Request</span>
               </label>
             </div>
           </div>
@@ -78,17 +78,17 @@
         <!-- Message TextArea -->
         <div style="grid-area: five" class="input--group">
           <label>Message *</label>
-          <textarea name="message" rows="7" wrap="hard"></textarea>
+          <textarea name="message" cols="auto" rows="7"></textarea>
           <small> This Field is Required </small>
         </div>
 
         <!-- Consent Checkbox -->
-        <div style="grid-area: six" class="consent--checkbox--wrapper">
+        <div style="grid-area: six" class="input--group consent--checkbox--wrapper">
           <div class="consent--checkbox--container">
             <input type="checkbox" name="consent" id="consent--checkbox" />
-            <label for="consent--checkbox"
-              >I consent to begin contacted by the team.</label
-            >
+            <label for="consent--checkbox">
+              I consent to begin contacted by the team.
+            </label>
           </div>
           <small>To Submit this form, please consent to being contacted</small>
         </div>

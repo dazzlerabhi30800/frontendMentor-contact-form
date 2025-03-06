@@ -69,6 +69,14 @@ form {
   border-radius: 5px;
 }
 
+.show--error > input,
+.show--error > textarea {
+  border-color: var(--Red) !important;
+}
+.show--error > small {
+  display: block !important;
+}
+
 /* Radio Container Styling */
 .radio--container {
   display: flex;
@@ -83,7 +91,7 @@ form {
 .radio--comp > input[type="checkbox"] {
   display: none;
 }
-.radio--comp > input:checked + label > span {
+.radio--comp > input:checked + label > .checkbox--circle {
   background: var(--Green-600-medium);
   border-color: transparent;
 }
@@ -100,7 +108,7 @@ form {
   width: 100%;
 }
 
-.radio--comp > label > span {
+.radio--comp > label > .checkbox--circle {
   width: 15px;
   height: 15px;
   border: 1px solid var(--Grey-900-darker);
@@ -172,9 +180,9 @@ button[type="submit"].success::after {
 }
 
 /* Class for Input */
-.error {
+/* .error {
   border-color: var(--Red) !important;
-}
+} */
 
 @media Screen and (min-width: 780px) {
   form {

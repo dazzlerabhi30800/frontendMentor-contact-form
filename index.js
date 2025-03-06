@@ -37,96 +37,54 @@ textArea.addEventListener('input', (e) => {
 
 
 function checkValue(key) {
-    const value = formInfo[key];
-    let errorCounter = 0;
-    if (key === 'message') {
-        const element = document.querySelector(`textarea[name=${key}]`);
-        const smallEl = element.parentElement.querySelector('small');
-        if (value === "") {
-            smallEl.style.display = "block";
-            element.classList.add('error');
-            errorCounter += 1;
+    const element = document.getElementsByName(key);
+    let parentElement = getParentElement(element[0].parentElement);
+    const val = formInfo[key];
+    if (key === 'query' || key === 'consent') {
+        if (val) {
+            parentElement.classList.remove('show--error');
         }
         else {
-            smallEl.style.display = "none";
-            element.classList.remove('error');
-            errorCounter = errorCounter - 1 < 0 ? 0 : errorCounter - 1;
+            parentElement.classList.add('show--error');
         }
-
     }
-    else if (key === 'query') {
-        const smallEl = document.querySelector(`.query--container small`);
-        if (value) {
-            smallEl.style.display = "none";
-            errorCounter = errorCounter - 1 < 0 ? 0 : errorCounter - 1;
+    else if (key === 'email') {
+        if (!val.match(emailRegex) || val === '') {
+            parentElement.classList.add('show--error');
         }
         else {
-            smallEl.style.display = "block";
-            errorCounter += 1;
-        }
-
-    }
-    else if (key === 'consent') {
-        const smallEl = document.querySelector(".consent--checkbox--wrapper small");
-        if (value) {
-            smallEl.style.display = "none";
-            errorCounter = errorCounter - 1 < 0 ? 0 : errorCounter - 1;
-        }
-        else {
-            smallEl.style.display = "block";
-            errorCounter += 1;
+            parentElement.classList.remove('show--error');
         }
     }
     else {
-        const element = document.querySelector(`input[name=${key}]`);
-        const smallEl = element.parentElement.querySelector('small');
-        if (key === 'email') {
-            if (value === "") {
-                smallEl.style.display = "block";
-                element.classList.add('error');
-                errorCounter += 1;
-            }
-            else if (!value.match(emailRegex)) {
-                smallEl.style.display = "block";
-                smallEl.textContent = "This email is not correct format"
-                element.classList.add('error');
-                errorCounter += 1;
-            }
-            else {
-                smallEl.style.display = "none";
-                smallEl.textContent = "This field is required"
-                element.classList.remove('error');
-                errorCounter = errorCounter - 1 < 0 ? 0 : errorCounter - 1;
-            }
-        }
-        if (value === "") {
-            smallEl.style.display = "block";
-            element.classList.add('error');
-            errorCounter += 1;
+        if (val === '') {
+            parentElement.classList.add('show--error');
         }
         else {
-            smallEl.style.display = "none";
-            element.classList.remove('error');
-            errorCounter = errorCounter - 1 < 0 ? 0 : errorCounter - 1;
+            parentElement.classList.remove('show--error');
         }
     }
-    return errorCounter;
+}
+
+// get the parent input--group class
+function getParentElement(element) {
+    if (element.classList.contains('input--group')) return element;
+    let parentElement = element.parentElement;
+    return getParentElement(parentElement);
 }
 
 
 form.onsubmit = (e) => {
     e.preventDefault();
-    let counter = 0;
-    for (const keys in formInfo) {
-        counter += checkValue(keys);
+    for (const key in formInfo) {
+        checkValue(key);
     }
-    if (counter === 0) {
-        // alert("form successfully submitted");
+    const errorGroup = document.querySelectorAll('.show--error');
+    if (errorGroup.length === 0) {
         submitBtn.classList.add('success');
         setTimeout(() => {
             submitBtn.textContent = "Form Submitted Succesfully 👍";
-        submitBtn.classList.remove('success');
+            submitBtn.classList.remove('success');
         }, 1200);
-
     }
 }
