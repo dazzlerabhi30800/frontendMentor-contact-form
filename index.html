@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -77,13 +77,21 @@
 
         <!-- Message TextArea -->
         <div style="grid-area: five" class="input--group">
-          <label>Message *</label>
-          <textarea name="message" cols="10" rows="7"></textarea>
+          <label for="text--message">Message *</label>
+          <textarea
+            id="text--message"
+            name="message"
+            cols="10"
+            rows="7"
+          ></textarea>
           <small> This Field is Required </small>
         </div>
 
         <!-- Consent Checkbox -->
-        <div style="grid-area: six" class="input--group consent--checkbox--wrapper">
+        <div
+          style="grid-area: six"
+          class="input--group consent--checkbox--wrapper"
+        >
           <div class="consent--checkbox--container">
             <input type="checkbox" name="consent" id="consent--checkbox" />
             <label for="consent--checkbox">
