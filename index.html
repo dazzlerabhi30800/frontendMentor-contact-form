@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Frontend Mentor | Contact form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  </head>
+  <body>
+    <main>
+      <h1>Contact Us</h1>
+      <form>
+        <!-- Input Group -->
+
+        <!-- First Name -->
+        <div style="grid-area: one" class="input--group">
+          <label>First Name *</label>
+          <input type="text" class="group--input" name="first" />
+          <!-- Error -->
+          <small> This Field is Required </small>
+        </div>
+
+        <!-- Last Name -->
+        <div style="grid-area: two" class="input--group">
+          <label>First Name *</label>
+          <input type="text" class="group--input" name="last" />
+          <small> This Field is Required </small>
+        </div>
+
+        <!-- Email Address -->
+        <div style="grid-area: three" class="input--group">
+          <label>Email Adress *</label>
+          <input type="text" class="group--input" name="email" />
+          <small> This Field is Required </small>
+        </div>
+
+        <!-- Query Type -->
+        <div style="grid-area: four" class="input--group query--container">
+          <p>Query Type *</p>
+          <!-- Radio Container -->
+          <div class="radio--container">
+            <!-- Radio Comp 1 -->
+            <div class="radio--comp">
+              <input type="checkbox" name="query" id="general--enquiry" />
+              <label for="general--enquiry">
+                <!-- Circle -->
+                <span class="checkbox--circle"></span>
+                <p>General Enquiry</p>
+              </label>
+            </div>
+
+            <!-- Radio Comp 2 -->
+            <div class="radio--comp">
+              <input type="checkbox" name="query" id="support--request" />
+              <label for="support--request">
+                <!-- Circle -->
+                <span class="checkbox--circle"></span>
+                <p>Support Request</p>
+              </label>
+            </div>
+          </div>
+          <!-- Radio Container End -->
+          <small>Please select a query type</small>
+        </div>
+        <!-- Query Type End -->
+
+        <!-- Message TextArea -->
+        <div style="grid-area: five" class="input--group">
+          <label>Message *</label>
+          <textarea name="message" rows="7" wrap="hard"></textarea>
+          <small> This Field is Required </small>
+        </div>
+
+        <!-- Consent Checkbox -->
+        <div style="grid-area: six" class="consent--checkbox--wrapper">
+          <div class="consent--checkbox--container">
+            <input type="checkbox" name="consent" id="consent--checkbox" />
+            <label for="consent--checkbox"
+              >I consent to begin contacted by the team.</label
+            >
+          </div>
+          <small>To Submit this form, please consent to being contacted</small>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" style="grid-area: seven">Submit</button>
+      </form>
+      <!-- Form End -->
+    </main>
+    <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  </body>
+  <script src="./index.js"></script>
+</html>

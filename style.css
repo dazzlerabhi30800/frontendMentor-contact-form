@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "Karla";
+  src: url("./assets/fonts/Karla-VariableFont_wght.ttf");
+  font-display: swap;
+}
+
+:root {
+  /* ### Primary */
+  --Green-200-lighter: hsl(148, 38%, 91%);
+  --Green-600-medium: hsl(169, 82%, 27%);
+  --Red: hsl(0, 66%, 54%);
+
+  /* ### Neutral */
+
+  --White: hsl(0, 0%, 100%);
+  --Grey-500-medium: hsl(186, 15%, 59%);
+  --Grey-900-darker: hsl(187, 24%, 22%);
+  --input-padding: 10px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Karla";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Green-200-lighter);
+}
+
+main {
+  width: 95%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: var(--White);
+  border-radius: 10px;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.12);
+  padding: 1.5rem;
+}
+form {
+  display: grid;
+  width: 100%;
+  grid-template-areas:
+    "one one"
+    "two two"
+    "three three"
+    "four four"
+    "five five"
+    "six six"
+    "seven seven";
+  gap: 1.5rem;
+}
+.input--group {
+  color: var(--Grey-900-darker);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.input--group > input[type="text"],
+.input--group > textarea {
+  padding: var(--input-padding);
+  border: 1px solid var(--Grey-900-darker);
+  border-radius: 5px;
+}
+
+/* Radio Container Styling */
+.radio--container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 7px;
+}
+
+.radio--comp {
+  flex: 1;
+}
+.radio--comp > input[type="checkbox"] {
+  display: none;
+}
+.radio--comp > input:checked + label > span {
+  background: var(--Green-600-medium);
+  border-color: transparent;
+}
+
+.radio--comp > label {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 10px;
+  padding: var(--input-padding);
+  border-radius: 8px;
+  border: 1px solid var(--Grey-900-darker);
+  font-size: 1rem;
+  width: 100%;
+}
+
+.radio--comp > label > span {
+  width: 15px;
+  height: 15px;
+  border: 1px solid var(--Grey-900-darker);
+  border-radius: 50%;
+  transition: 0.3s linear;
+}
+
+/* Consent Checkbox Container */
+.consent--checkbox--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.consent--checkbox--container {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  padding-left: 5px;
+  font-size: 14px;
+}
+
+#consent--checkbox {
+  accent-color: var(--Green-600-medium);
+  height: 14px;
+}
+
+small {
+  color: var(--Red);
+  font-size: 12px !important;
+  display: none;
+  font-weight: 600;
+}
+.active small {
+  display: block;
+}
+
+button[type="submit"] {
+  border: none;
+  color: var(--White);
+  outline: none;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.12);
+  background: var(--Green-600-medium);
+  text-align: center;
+  font-weight: 700;
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  position: relative;
+  transition: 0.3s linear;
+
+  &:hover {
+    filter: brightness(85%);
+  }
+}
+button[type="submit"]::after {
+  position: absolute;
+  content: "";
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 5px;
+  border-radius: 10px;
+  background: rgb(101, 240, 221);
+}
+button[type="submit"].success::after {
+  width: 100%;
+  transition: 1s linear;
+}
+
+/* Class for Input */
+.error {
+  border-color: var(--Red) !important;
+}
+
+@media Screen and (min-width: 780px) {
+  form {
+    grid-template-areas:
+      "one two"
+      "three three"
+      "four four"
+      "five five"
+      "six six"
+      "seven seven";
+  }
+  .radio--container {
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    margin-top: 0;
+  }
+}
